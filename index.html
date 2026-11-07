@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PlantAR | Smart Plant Scanner</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f8f2;
+    color: #253b2c;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #315d40;
+}
+
+nav a {
+    text-decoration: none;
+    color: #506451;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 65px 8%;
+    gap: 40px;
+}
+
+.hero-text {
+    max-width: 520px;
+}
+
+.tag {
+    color: #78936c;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 52px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+h1 span {
+    color: #72936b;
+}
+
+.hero p {
+    color: #7b887b;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.hero img {
+    width: 45%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+button {
+    background: #416b4b;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #294b34;
+    transform: translateY(-2px);
+}
+
+.section {
+    margin: 35px 8%;
+    padding: 40px;
+    background: white;
+    border-radius: 22px;
+}
+
+.section h2 {
+    margin-bottom: 12px;
+    font-size: 28px;
+}
+
+.subtitle {
+    color: #849084;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.upload-box {
+    border: 2px dashed #b9cbb4;
+    background: #f8faf6;
+    border-radius: 18px;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.upload-box h3 {
+    margin-bottom: 12px;
+}
+
+.upload-box p {
+    color: #839083;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+#preview {
+    display: none;
+    width: 100%;
+    max-width: 350px;
+    max-height: 320px;
+    object-fit: contain;
+    margin: 20px auto;
+    border-radius: 15px;
+}
+
+#result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 16px;
+    background: #edf4e9;
+}
+
+#result h3 {
+    color: #315c40;
+    margin-bottom: 15px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.info-card {
+    background: white;
+    padding: 20px;
+    border-radius: 13px;
+}
+
+.info-card p {
+    color: #849184;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.info-card strong {
+    font-size: 14px;
+}
+
+.about-text {
+    color: #7b887b;
+    line-height: 1.8;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #8a9688;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 20px 6%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 45px 6%;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .hero img {
+        width: 100%;
+        height: 260px;
+    }
+
+    .section {
+        margin: 25px 6%;
+        padding: 25px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">PlantAR</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#scanner">Scanner</a>
+        <a href="#about">About</a>
+    </nav>
+
+</header>
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <div class="tag">SMART PLANT TECHNOLOGY</div>
+
+        <h1>
+            Discover Your Plant
+            <span>With AI</span>
+        </h1>
+
+        <p>
+            Explore the world of plants with PlantAR.
+            Upload a plant image and discover useful
+            information about its care and environment.
+        </p>
+
+        <button onclick="goToScanner()">
+            Start Scanning
+        </button>
+
+    </div>
+
+    <img
+        src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80"
+        alt="Beautiful green plant"
+    >
+
+</section>
+
+<section class="section" id="scanner">
+
+    <h2>Plant Scanner</h2>
+
+    <p class="subtitle">
+        Upload a clear picture of your plant
+        to explore its information.
+    </p>
+
+    <div class="upload-box">
+
+        <h3>Choose Your Plant</h3>
+
+        <p>
+            Select an image from your device
+        </p>
+
+        <input
+            type="file"
+            id="plantInput"
+            accept="image/*"
+        >
+
+        <img id="preview" alt="Uploaded plant">
+
+        <button onclick="analyzePlant()">
+            Analyze Plant
+        </button>
+
+    </div>
+
+    <div id="result">
+
+        <h3>Plant Information</h3>
+
+        <p id="plantName">
+            Your plant image is ready.
+        </p>
+
+        <div class="info-grid">
+
+            <div class="info-card">
+                <p>Water</p>
+                <strong>Moderate</strong>
+            </div>
+
+            <div class="info-card">
+                <p>Sunlight</p>
+                <strong>Indirect Light</strong>
+            </div>
+
+            <div class="info-card">
+                <p>Environment</p>
+                <strong>Warm</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="about">
+
+    <h2>About PlantAR</h2>
+
+    <p class="about-text">
+        PlantAR is an interactive plant information
+        prototype designed to help users explore
+        plants through image uploading and
+        smart technology.
+    </p>
+
+</section>
+
+<footer>
+    PlantAR | Smart Plant Scanner
+</footer>
+
+<script>
+
+const plantInput = document.getElementById("plantInput");
+const preview = document.getElementById("preview");
+
+let selectedImage = false;
+
+function goToScanner() {
+
+    document.getElementById("scanner").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+plantInput.addEventListener("change", function() {
+
+    const file = this.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+
+        alert("Please select an image.");
+
+        return;
+
+    }
+
+    preview.src = URL.createObjectURL(file);
+
+    preview.style.display = "block";
+
+    selectedImage = true;
+
+    document.getElementById("result").style.display = "none";
+
+});
+
+function analyzePlant() {
+
+    if (!selectedImage) {
+
+        alert("Please upload a plant image first.");
+
+        return;
+
+    }
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("plantName").innerText =
+        "Image uploaded successfully!";
+
+}
+
+</script>
+
+</body>
+</html>
