@@ -117,6 +117,27 @@ button:hover {
     margin-bottom: 25px;
 }
 
+.plant-download {
+    text-align: center;
+}
+
+.plant-download img {
+    width: 280px;
+    max-width: 90%;
+    border-radius: 15px;
+    margin: 10px auto 20px;
+    display: block;
+}
+
+.download-btn {
+    background: #416b4b;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
 .upload-box {
     border: 2px dashed #b9cbb4;
     background: #f8faf6;
@@ -200,7 +221,6 @@ footer {
 }
 
 @media (max-width: 700px) {
-
     header {
         padding: 20px 6%;
     }
@@ -244,17 +264,17 @@ footer {
 <body>
 
 <header>
-
     <div class="logo">PlantAR</div>
 
     <nav>
         <a href="#home">Home</a>
+        <a href="#plant-download">Plant Image</a>
         <a href="#scanner">Scanner</a>
         <a href="#about">About</a>
     </nav>
-
 </header>
 
+<!-- HOME SECTION -->
 <section class="hero" id="home">
 
     <div class="hero-text">
@@ -285,6 +305,32 @@ footer {
 
 </section>
 
+<!-- PLANT IMAGE DOWNLOAD SECTION -->
+<section class="section plant-download" id="plant-download">
+
+    <h2>🌱 Discover the Plant</h2>
+
+    <p class="subtitle">
+        Download the plant image and use it
+        to experience Augmented Reality.
+    </p>
+
+    <img
+        src="./plant.jpg"
+        alt="Plant AR Target Image"
+    >
+
+    <a
+        href="./plant.jpg"
+        download="plant.jpg"
+        class="download-btn"
+    >
+        📥 Download Plant Image
+    </a>
+
+</section>
+
+<!-- SCANNER SECTION -->
 <section class="section" id="scanner">
 
     <h2>Plant Scanner</h2>
@@ -298,9 +344,7 @@ footer {
 
         <h3>Choose Your Plant</h3>
 
-        <p>
-            Select an image from your device
-        </p>
+        <p>Select an image from your device</p>
 
         <input
             type="file"
@@ -347,6 +391,7 @@ footer {
 
 </section>
 
+<!-- ABOUT SECTION -->
 <section class="section" id="about">
 
     <h2>About PlantAR</h2>
