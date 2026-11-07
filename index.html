@@ -1,13 +1,19 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PlantAR | Smart Plant Scanner</title>
+<title>PlantAR | عالم النباتات الذكي</title>
 
 <style>
+
+/* =========================
+   GENERAL
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -18,6 +24,8 @@ body {
     font-family: Arial, sans-serif;
     background: #f6f8f2;
     color: #253b2c;
+    direction: rtl;
+    text-align: right;
 }
 
 header {
@@ -36,9 +44,17 @@ header {
 nav a {
     text-decoration: none;
     color: #506451;
-    margin-left: 20px;
+    margin-right: 20px;
     font-size: 14px;
 }
+
+nav a:hover {
+    color: #315d40;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
 
 .hero {
     display: flex;
@@ -55,13 +71,13 @@ nav a {
 .tag {
     color: #78936c;
     font-size: 12px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
 h1 {
     font-size: 52px;
-    line-height: 1.2;
+    line-height: 1.4;
     margin-bottom: 20px;
 }
 
@@ -71,7 +87,7 @@ h1 span {
 
 .hero p {
     color: #7b887b;
-    line-height: 1.8;
+    line-height: 1.9;
     margin-bottom: 25px;
 }
 
@@ -98,6 +114,10 @@ button:hover {
     transform: translateY(-2px);
 }
 
+/* =========================
+   SECTIONS
+========================= */
+
 .section {
     margin: 35px 8%;
     padding: 40px;
@@ -113,17 +133,21 @@ button:hover {
 .subtitle {
     color: #849084;
     font-size: 14px;
-    line-height: 1.7;
+    line-height: 1.9;
     margin-bottom: 25px;
 }
+
+/* =========================
+   PLANT IMAGE DOWNLOAD
+========================= */
 
 .plant-download {
     text-align: center;
 }
 
 .plant-download img {
-    width: 280px;
-    max-width: 90%;
+    width: 350px;
+    max-width: 100%;
     border-radius: 15px;
     margin: 10px auto 20px;
     display: block;
@@ -136,7 +160,16 @@ button:hover {
     border-radius: 10px;
     text-decoration: none;
     display: inline-block;
+    transition: 0.3s;
 }
+
+.download-btn:hover {
+    background: #294b34;
+}
+
+/* =========================
+   SCANNER
+========================= */
 
 .upload-box {
     border: 2px dashed #b9cbb4;
@@ -172,46 +205,98 @@ input[type="file"] {
     border-radius: 15px;
 }
 
+/* =========================
+   PLANT INFORMATION
+========================= */
+
 #result {
     display: none;
     margin-top: 25px;
     padding: 25px;
-    border-radius: 16px;
-    background: #edf4e9;
+    background: white;
+    border-radius: 20px;
+    direction: rtl;
+    text-align: right;
 }
 
-#result h3 {
-    color: #315c40;
-    margin-bottom: 15px;
+.plant-heading {
+    text-align: center;
+    background: #edf5e9;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+}
+
+.plant-label {
+    color: #72936b;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.plant-heading h2 {
+    color: #315d40;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+#scientificName {
+    color: #7b887b;
+    font-size: 15px;
+    direction: ltr;
+}
+
+.plant-description {
+    margin-top: 25px;
+    line-height: 1.9;
+}
+
+.plant-description h3 {
+    color: #416b4b;
+    margin-bottom: 12px;
+}
+
+.plant-description ul {
+    padding-right: 25px;
+    line-height: 2;
 }
 
 .info-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .info-card {
-    background: white;
+    background: #f6f8f2;
     padding: 20px;
     border-radius: 13px;
 }
 
 .info-card p {
-    color: #849184;
-    font-size: 12px;
+    color: #72936b;
+    font-size: 14px;
     margin-bottom: 10px;
 }
 
 .info-card strong {
+    color: #315d40;
     font-size: 14px;
+    line-height: 1.8;
 }
+
+/* =========================
+   ABOUT
+========================= */
 
 .about-text {
     color: #7b887b;
-    line-height: 1.8;
+    line-height: 1.9;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     text-align: center;
@@ -220,17 +305,30 @@ footer {
     font-size: 13px;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 700px) {
+
     header {
         padding: 20px 6%;
+        flex-wrap: wrap;
+        gap: 15px;
     }
 
     .logo {
         font-size: 20px;
     }
 
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
     nav a {
-        margin-left: 10px;
+        margin: 0;
         font-size: 12px;
     }
 
@@ -257,67 +355,89 @@ footer {
     .info-grid {
         grid-template-columns: 1fr;
     }
+
+    .plant-heading h2 {
+        font-size: 25px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-    <div class="logo">PlantAR</div>
+
+    <div class="logo">
+        PlantAR 🌿
+    </div>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#plant-download">Plant Image</a>
-        <a href="#scanner">Scanner</a>
-        <a href="#about">About</a>
+        <a href="#home">الرئيسية</a>
+        <a href="#plant-download">صورة النبتة</a>
+        <a href="#scanner">ماسح النباتات</a>
+        <a href="#about">من نحن</a>
     </nav>
+
 </header>
 
-<!-- HOME SECTION -->
+<!-- =========================
+     HOME
+========================= -->
+
 <section class="hero" id="home">
 
     <div class="hero-text">
 
-        <div class="tag">SMART PLANT TECHNOLOGY</div>
+        <div class="tag">
+            تقنية النباتات الذكية
+        </div>
 
         <h1>
-            Discover Your Plant
-            <span>With AI</span>
+            اكتشف عالم
+            <span>النباتات</span>
         </h1>
 
         <p>
-            Explore the world of plants with PlantAR.
-            Upload a plant image and discover useful
-            information about its care and environment.
+            اكتشف جمال النباتات وتعرّف على معلوماتها
+            وطرق العناية بها من خلال PlantAR.
+            ارفع صورة النبتة واستكشف عالمها الأخضر.
         </p>
 
         <button onclick="goToScanner()">
-            Start Scanning
+            ابدأ الآن
         </button>
 
     </div>
 
     <img
-        src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80"
-        alt="Beautiful green plant"
+        src="./plant.jpg"
+        alt="نبتة المونستيرا"
     >
 
 </section>
 
-<!-- PLANT IMAGE DOWNLOAD SECTION -->
+<!-- =========================
+     PLANT IMAGE DOWNLOAD
+========================= -->
+
 <section class="section plant-download" id="plant-download">
 
-    <h2>🌱 Discover the Plant</h2>
+    <h2>🌱 اكتشف النبتة</h2>
 
     <p class="subtitle">
-        Download the plant image and use it
-        to experience Augmented Reality.
+        حمّل صورة النبتة واستخدمها لتجربة
+        الواقع المعزز.
     </p>
 
     <img
         src="./plant.jpg"
-        alt="Plant AR Target Image"
+        alt="نبتة المونستيرا"
     >
 
     <a
@@ -325,26 +445,31 @@ footer {
         download="plant.jpg"
         class="download-btn"
     >
-        📥 Download Plant Image
+        📥 تحميل صورة النبتة
     </a>
 
 </section>
 
-<!-- SCANNER SECTION -->
+<!-- =========================
+     PLANT SCANNER
+========================= -->
+
 <section class="section" id="scanner">
 
-    <h2>Plant Scanner</h2>
+    <h2>ماسح النباتات 🌿</h2>
 
     <p class="subtitle">
-        Upload a clear picture of your plant
-        to explore its information.
+        ارفع صورة النبتة واستكشف معلوماتها
+        وطرق العناية بها.
     </p>
 
     <div class="upload-box">
 
-        <h3>Choose Your Plant</h3>
+        <h3>اختر صورة النبتة</h3>
 
-        <p>Select an image from your device</p>
+        <p>
+            اختر صورة من جهازك للبدء
+        </p>
 
         <input
             type="file"
@@ -352,38 +477,155 @@ footer {
             accept="image/*"
         >
 
-        <img id="preview" alt="Uploaded plant">
+        <img
+            id="preview"
+            alt="صورة النبتة التي تم رفعها"
+        >
 
         <button onclick="analyzePlant()">
-            Analyze Plant
+            عرض معلومات النبتة
         </button>
 
     </div>
 
+    <!-- PLANT INFORMATION -->
+
     <div id="result">
 
-        <h3>Plant Information</h3>
+        <!-- PLANT NAME FIRST -->
 
-        <p id="plantName">
-            Your plant image is ready.
-        </p>
+        <div class="plant-heading">
+
+            <p class="plant-label">
+                🌿 تم التعرف على النبتة
+            </p>
+
+            <h2 id="plantName">
+                نبتة المونستيرا
+            </h2>
+
+            <p id="scientificName">
+                Monstera deliciosa
+            </p>
+
+        </div>
+
+        <!-- DESCRIPTION -->
+
+        <div class="plant-description">
+
+            <h3>نبذة عن النبتة</h3>
+
+            <p>
+                المونستيرا نبات استوائي يتميز
+                بأوراقه الخضراء الكبيرة والمثقوبة،
+                ويُعد من النباتات المنزلية الجميلة
+                والمحبوبة.
+            </p>
+
+        </div>
+
+        <!-- CARE INFORMATION -->
 
         <div class="info-grid">
 
             <div class="info-card">
-                <p>Water</p>
-                <strong>Moderate</strong>
+
+                <p>💧 طريقة الري</p>
+
+                <strong>
+                    تُروى عند جفاف سطح التربة
+                </strong>
+
             </div>
 
             <div class="info-card">
-                <p>Sunlight</p>
-                <strong>Indirect Light</strong>
+
+                <p>☀️ الإضاءة</p>
+
+                <strong>
+                    ضوء ساطع غير مباشر
+                </strong>
+
             </div>
 
             <div class="info-card">
-                <p>Environment</p>
-                <strong>Warm</strong>
+
+                <p>🌱 التربة</p>
+
+                <strong>
+                    تربة جيدة التصريف
+                </strong>
+
             </div>
+
+            <div class="info-card">
+
+                <p>🌡️ درجة الحرارة</p>
+
+                <strong>
+                    18–30 درجة مئوية تقريبًا
+                </strong>
+
+            </div>
+
+            <div class="info-card">
+
+                <p>🪴 مستوى العناية</p>
+
+                <strong>
+                    سهلة إلى متوسطة
+                </strong>
+
+            </div>
+
+            <div class="info-card">
+
+                <p>🌿 نوع النبتة</p>
+
+                <strong>
+                    نبات استوائي منزلي
+                </strong>
+
+            </div>
+
+        </div>
+
+        <!-- BENEFITS -->
+
+        <div class="plant-description">
+
+            <h3>مميزات النبتة</h3>
+
+            <ul>
+
+                <li>
+                    أوراق كبيرة وجذابة.
+                </li>
+
+                <li>
+                    مناسبة للزينة والديكور الداخلي.
+                </li>
+
+                <li>
+                    تنمو بشكل جيد في البيئة المناسبة.
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- WARNING -->
+
+        <div class="plant-description">
+
+            <h3>⚠️ تنبيه</h3>
+
+            <p>
+                تحتوي المونستيرا على مواد قد تسبب
+                تهيجًا عند مضغ أوراقها، لذلك يُفضّل
+                إبعادها عن الأطفال والحيوانات الأليفة.
+            </p>
 
         </div>
 
@@ -391,30 +633,51 @@ footer {
 
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- =========================
+     ABOUT
+========================= -->
+
 <section class="section" id="about">
 
-    <h2>About PlantAR</h2>
+    <h2>عن PlantAR</h2>
 
     <p class="about-text">
-        PlantAR is an interactive plant information
-        prototype designed to help users explore
-        plants through image uploading and
-        smart technology.
+
+        PlantAR هو مشروع تفاعلي يهدف إلى
+        استكشاف عالم النباتات والتعرف على
+        معلوماتها وطرق العناية بها باستخدام
+        التكنولوجيا والواقع المعزز.
+
     </p>
 
 </section>
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    PlantAR | Smart Plant Scanner
+
+    PlantAR | عالم النباتات الذكي 🌿
+
 </footer>
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
 const plantInput = document.getElementById("plantInput");
+
 const preview = document.getElementById("preview");
 
+const result = document.getElementById("result");
+
 let selectedImage = false;
+
+
+// الانتقال إلى الماسح
 
 function goToScanner() {
 
@@ -423,6 +686,9 @@ function goToScanner() {
     });
 
 }
+
+
+// عرض الصورة عند اختيارها
 
 plantInput.addEventListener("change", function() {
 
@@ -434,7 +700,7 @@ plantInput.addEventListener("change", function() {
 
     if (!file.type.startsWith("image/")) {
 
-        alert("Please select an image.");
+        alert("الرجاء اختيار صورة صحيحة.");
 
         return;
 
@@ -446,24 +712,35 @@ plantInput.addEventListener("change", function() {
 
     selectedImage = true;
 
-    document.getElementById("result").style.display = "none";
+    result.style.display = "none";
 
 });
+
+
+// عرض معلومات النبتة
 
 function analyzePlant() {
 
     if (!selectedImage) {
 
-        alert("Please upload a plant image first.");
+        alert("الرجاء رفع صورة النبتة أولاً.");
 
         return;
 
     }
 
-    document.getElementById("result").style.display = "block";
+    result.style.display = "block";
 
     document.getElementById("plantName").innerText =
-        "Image uploaded successfully!";
+        "نبتة المونستيرا";
+
+    document.getElementById("scientificName").innerText =
+        "Monstera deliciosa";
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 
 }
 
